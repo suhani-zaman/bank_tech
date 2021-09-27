@@ -64,8 +64,9 @@ I/P                       O/P
  1000                      1000
  2000                      3000
            500             2500
--specified with date     -display full statement
 
+-specified with date     -display full statement
+------------------------------------------------
 class Bank
 
 balance :integer
