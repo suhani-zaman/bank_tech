@@ -1,48 +1,42 @@
 class Bank
     attr_accessor :balance, :date, :amount
     def initialize
-      @balance = 0.00
-      @date = ""
+      @balance = 0.00              #float value
       @amount = 0.00
       @display = []
-      @statement = []
-      @state = ""
     end
 
     def deposit(amount, date)
         @amount = amount
         @balance += @amount
-        @date = date
-        @state = "credit"
-        @statement = [@date, @amount, @balance, @state]
-        @display.push(@statement)
+        @card_action = "credit"
+        @account = [date, @amount, @balance, @card_action]
+        @display.push(@account)
         
     end
 
     def withdraw(amount, date)
       @amount = amount
       @balance -= @amount
-      @date = date 
-      @state = "debit"
-      @statement = [@date, @amount, @balance, @state]
-      @display.push(@statement)
+      @card_action = "debit"
+      @account = [date, @amount, @balance, @card_action]
+      @display.push(@account)
       
     end
 
     def display
-      l = @display.length
-      i = 0
-      n = l
-      print 'date || credit || debit || balance'
-      while i < l do
+      length = @display.length
+      i = 0                                    #iterating times
+      index = (length-1)
+      print 'date || credit || debit || balance'   #label for account statement
+      while i < length do
         puts ""
-        if (@display[n-1][3]) == "credit"
-          print ("#{@display[n-1][0]} || #{(@display[n-1][1]).to_f} || || #{(@display[n-1][2]).to_f}")
-        end  
-        if (@display[n-1][3])  == "debit"
-          print ("#{@display[n-1][0]} || || #{(@display[n-1][1]).to_f} || #{(@display[n-1][2]).to_f}")
+        if(@display[index][3]) == "credit"           #prints the deposited date, amount and balance
+          print ("#{@display[index][0]} || #{@display[index][1].to_f} || || #{@display[index][2].to_f}")
+        elsif(@display[index][3])  == "debit"       #prints the withdrawn date, amount and balance
+          print ("#{@display[index][0]} || || #{(@display[index][1]).to_f} || #{(@display[index][2]).to_f}")
         end
-        n -= 1
+        index -= 1
         i += 1
       end
     end
