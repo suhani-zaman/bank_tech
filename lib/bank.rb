@@ -27,10 +27,12 @@ class Bank
     def display
       l = @display.length
       i = 0
+      n = l
       print 'date || credit || debit || balance'
       while i < l do
         puts ""
-        print ("#{@display[i][0]} || #{(@display[i][1]).to_f} || #{(@display[i][2]).to_f}")
+        print ("#{@display[n-1][0]} || #{(@display[n-1][1]).to_f} || #{(@display[n-1][2]).to_f}")
+        n -= 1
         i += 1
       end
     end

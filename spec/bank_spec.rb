@@ -48,8 +48,8 @@ describe Bank do
         bank.deposit(2000,"13/01/2023")
         bank.withdraw(500, "14/01/2023")
         expect{bank.display}.to output('date || credit || debit || balance
-10/01/2023 || 1000.0 || 1000.0
+14/01/2023 || 500.0 || 2500.0
 13/01/2023 || 2000.0 || 3000.0
-14/01/2023 || 500.0 || 2500.0').to_stdout
+10/01/2023 || 1000.0 || 1000.0').to_stdout
     end
 end
