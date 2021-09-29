@@ -59,11 +59,11 @@ date || credit || debit || balance
 ``` 
 
 ### Planning
-I/P                       O/P
- credit | debit        Balance Amount 
- 1000                      1000
- 2000                      3000
-           500             2500
+I/P                          O/P
+ credit | debit          Balance Amount 
+ 1000                         1000
+ 2000                         3000
+              500             2500
 
 -specified with date     -display full statement
 ------------------------------------------------
