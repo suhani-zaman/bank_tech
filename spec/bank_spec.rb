@@ -14,7 +14,7 @@ describe Bank do
         bank = Bank.new 
         balance = bank.deposit(1000,"10/01/2023")
         expect{bank.display}.to output('date || credit || debit || balance
-10/01/2023 || 1000.0 || 1000.0').to_stdout
+10/01/2023 || 1000.0 || || 1000.0').to_stdout
     end
     it "depositing balance is increased" do
         bank = Bank.new
@@ -27,7 +27,7 @@ describe Bank do
         bank.balance = 1000
         balance = bank.deposit(2000,"13/01/2023")
         expect{bank.display}.to output('date || credit || debit || balance
-13/01/2023 || 2000.0 || 3000.0').to_stdout
+13/01/2023 || 2000.0 || || 3000.0').to_stdout
     end
     it "on withdrawing balance is decreased" do
         bank = Bank.new 
@@ -40,7 +40,7 @@ describe Bank do
         bank.balance = 3000
         balance = bank.withdraw(500, "14/01/2023")
         expect{bank.display}.to output('date || credit || debit || balance
-14/01/2023 || 500.0 || 2500.0').to_stdout
+14/01/2023 || || 500.0 || 2500.0').to_stdout
     end
     it "Display the  bank statement after withdrawing" do
         bank = Bank.new
@@ -48,8 +48,8 @@ describe Bank do
         bank.deposit(2000,"13/01/2023")
         bank.withdraw(500, "14/01/2023")
         expect{bank.display}.to output('date || credit || debit || balance
-14/01/2023 || 500.0 || 2500.0
-13/01/2023 || 2000.0 || 3000.0
-10/01/2023 || 1000.0 || 1000.0').to_stdout
+14/01/2023 || || 500.0 || 2500.0
+13/01/2023 || 2000.0 || || 3000.0
+10/01/2023 || 1000.0 || || 1000.0').to_stdout
     end
 end

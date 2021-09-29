@@ -6,22 +6,27 @@ class Bank
       @amount = 0.00
       @display = []
       @statement = []
+      @state = ""
     end
 
     def deposit(amount, date)
         @amount = amount
         @balance += @amount
         @date = date
-        @statement = [@date, @amount, @balance]
+        @state = "credit"
+        @statement = [@date, @amount, @balance, @state]
         @display.push(@statement)
+        
     end
 
     def withdraw(amount, date)
       @amount = amount
       @balance -= @amount
       @date = date 
-      @statement = [@date, @amount, @balance]
+      @state = "debit"
+      @statement = [@date, @amount, @balance, @state]
       @display.push(@statement)
+      
     end
 
     def display
@@ -31,7 +36,12 @@ class Bank
       print 'date || credit || debit || balance'
       while i < l do
         puts ""
-        print ("#{@display[n-1][0]} || #{(@display[n-1][1]).to_f} || #{(@display[n-1][2]).to_f}")
+        if (@display[n-1][3]) == "credit"
+          print ("#{@display[n-1][0]} || #{(@display[n-1][1]).to_f} || || #{(@display[n-1][2]).to_f}")
+        end  
+        if (@display[n-1][3])  == "debit"
+          print ("#{@display[n-1][0]} || || #{(@display[n-1][1]).to_f} || #{(@display[n-1][2]).to_f}")
+        end
         n -= 1
         i += 1
       end
