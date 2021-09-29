@@ -6,6 +6,7 @@ The Specification is shown below the header "Bank Tech Test".
 * [Testing](#testing)
 * [Usage](#usage)
 * [Bank Tech Test](#bank-tech-test)
+* [User Story](#user-story)
 
 ## Technologies and Design Principles:
 it has been built on ruby and using TDD throughout. Testing teachnology used was Rspec.
@@ -74,12 +75,12 @@ i would like to see my bank details
 so that i am up-to-date informed with all my transaction
 
 ### Planning
-| #I/P                 |         #O/P      |
-| :---------:          |   :-------------: |
-| credit | debit       |  Balance Amount   |
+| I/P                  |         O/P        |
+| :---------:          |   :-------------:  |
+| credit | debit       |  Balance Amount    |
 | 1000                 |     1000           |
 | 2000                 |     3000           |
-|         |   500      |     2500          |
+|         |   500      |     2500           |
 
 -specified with date     -display full statement
 ------------------------------------------------
