@@ -1,7 +1,7 @@
 The Specification is shown below the header "Bank Tech Test".
 
 ## Table of contents
-* [Technologies and Design Principles](technologies-and-design-principles)
+* [Technologies and Design Principles](#technologies-and-design-principles)
 * [Installation](#installation)
 * [Testing](#testing)
 * [Usage](#usage)
@@ -57,13 +57,29 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ``` 
+## User story
+### 1
+As a customer
+i would like to deposit money on my account
+so that i can shop cashless
+
+### 2
+As a customer
+i would like to withdraw money from my account
+so that i can use cash whenever i need it
+
+### 3
+As a customer
+i would like to see my bank details
+so that i am up-to-date informed with all my transaction
 
 ### Planning
-I/P                          O/P
- credit | debit          Balance Amount 
- 1000                         1000
- 2000                         3000
-              500             2500
+| #I/P                 |         #O/P      |
+| :---------:          |   :-------------: |
+| credit | debit       |  Balance Amount   |
+| 1000                 |     1000           |
+| 2000                 |     3000           |
+|         |   500      |     2500          |
 
 -specified with date     -display full statement
 ------------------------------------------------
@@ -71,6 +87,7 @@ class Bank
 
 balance :integer
 date :string
+amount(crdit/debit) :integer
 
 methods
 - withdraw()
