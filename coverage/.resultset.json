@@ -1,17 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kushboozaman/Projects/week10/bank_tech/spec/bank_spec.rb": {
+      "/Users/kushboozaman/Projects/week10/bank_tech/spec/account_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
           1,
-          9,
+          8,
           1,
           1,
           null,
-          null,
+          1,
           1,
           1,
           1,
@@ -40,6 +42,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           1,
@@ -52,8 +55,14 @@
           1,
           1,
           1,
+          null,
+          null,
+          null,
           1,
-          2,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -62,8 +71,11 @@
           null
         ]
       },
-      "/Users/kushboozaman/Projects/week10/bank_tech/lib/bank.rb": {
+      "/Users/kushboozaman/Projects/week10/bank_tech/lib/account.rb": {
         "lines": [
+          null,
+          1,
+          null,
           1,
           1,
           null,
@@ -89,26 +101,84 @@
           3,
           null,
           null,
-          1,
-          4,
-          4,
-          4,
-          4,
-          4,
-          6,
-          6,
-          4,
-          2,
-          2,
           null,
-          6,
-          6,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kushboozaman/Projects/week10/bank_tech/lib/statement.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kushboozaman/Projects/week10/bank_tech/spec/statement_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1632946638
+    "timestamp": 1632991422
   }
 }
