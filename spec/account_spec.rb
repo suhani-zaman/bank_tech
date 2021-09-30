@@ -49,18 +49,13 @@ describe Account do
   end
   describe 'display' do
     it 'Displays the full bank trasaction made by the customer' do
-      Statement.any_instance.stub(:account_print).and_return(:'date || credit || debit || balance
+      account.deposit(1000, '10/01/2023')
+      account.deposit(2000, '13/01/2023')
+      account.withdraw(500, '14/01/2023')
+      expect { account.display }.to output('date || credit || debit || balance
 14/01/2023 || || 500.0 || 2500.0
 13/01/2023 || 2000.0 || || 3000.0
-10/01/2023 || 1000.0 || || 1000.0')
-      statement = Statement.new
-      statement.account.deposit(1000, '10/01/2023')
-      statement.account.deposit(2000, '13/01/2023')
-      statement.account.withdraw(500, '14/01/2023')
-      statement.account_print.should eq(:'date || credit || debit || balance
-14/01/2023 || || 500.0 || 2500.0
-13/01/2023 || 2000.0 || || 3000.0
-10/01/2023 || 1000.0 || || 1000.0')
+10/01/2023 || 1000.0 || || 1000.0').to_stdout
     end
   end
 end

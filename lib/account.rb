@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'statement'
+
 # class Account of customer which does three actions:deposit,withdraw and display.
 class Account
   attr_accessor :balance, :date, :amount, :details
@@ -26,22 +26,24 @@ class Account
     @details.push(@account)
   end
 
-  # def display
-  #   statement = Statement.new
-  #   statement.account_print
-  #   # length = @details.length
-  #   # i = 0 # iterating times
-  #   # index = (length - 1)
-  #   # print 'date || credit || debit || balance' # label for account statement
-  #   # while i < length
-  #   #   puts ''
-  #   #   if (@details[index][3]) == 'credit'      # prints the deposited date, amount and balance
-  #   #     print "#{@details[index][0]} || #{@details[index][1].to_f} || || #{@details[index][2].to_f}"
-  #   #   elsif (@details[index][3]) == 'debit'       # prints the withdrawn date, amount and balance
-  #   #     print "#{@details[index][0]} || || #{(@details[index][1]).to_f} || #{(@details[index][2]).to_f}"
-  #   #   end
-  #   #   index -= 1
-  #   #   i += 1
-  #   # end
-  # end
+  def display
+    print 'date || credit || debit || balance' # label  account statement
+    reverse
+  end
+
+  private
+
+  def reverse
+    @details.reverse_each do |d|
+      puts ''
+      case d[3]
+      when 'credit' # prints the deposited date, amount and balance
+        print "#{d[0]} || #{d[1].to_f} || || #{d[2].to_f}"
+      when 'debit'  # prints the withdrawn date, amount and balance
+        print "#{d[0]} || || #{(d[1]).to_f} || #{(d[2]).to_f}"
+      else
+        print 'No account history to show'
+      end
+    end
+  end
 end
