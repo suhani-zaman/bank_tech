@@ -8,25 +8,26 @@ class Account
   def initialize
     @balance = 0.00 # float value
     @amount = 0.00
-    @transaction = {}
+    @transaction = Hash.new {|h,k| h[k]=[]}
   end
 
   def deposit(amount)
     @amount = amount
     @balance += @amount
     @account = [Date.today.strftime("%d/%m/%Y"), @amount, @balance]
-    @transaction[:credit] = @account
+    @transaction["credit"] << @account
+
   end
 
   def withdraw(amount)
     @amount = amount
     @balance -= @amount
     @account = [Date.today.strftime("%d/%m/%Y"), @amount, @balance, @card_action]
-    @transaction[:debit] = @account
+    @transaction["debit"] << @account
   end
 
   def account_statement
-    print 'date || credit || debit || balance' # label  account statement
+    puts 'date || credit || debit || balance' # label  account statement
     reverse
   end
 
@@ -34,11 +35,20 @@ class Account
 
   def reverse
     @transaction.reverse_each do | key, value |
-      puts ''
-      if key == :credit
-        print "#{value[0]} || #{(value[1]).to_f} || || #{(value[2]).to_f}"
-      elsif key == :debit
-        print "#{value[0]} || || #{(value[1]).to_f} || #{(value[2]).to_f}"
+      if key == "credit"
+        length = value.length
+        i = (length -1)
+        while i >= 0 
+          puts "#{value[i][0]} || #{(value[i][1]).to_f} || || #{(value[i][2]).to_f}"
+          i -= 1
+        end
+      elsif key == "debit"
+        length = value.length
+        i = (length -1)
+        while i >= 0 
+          puts "#{value[i][0]} || || #{(value[i][1]).to_f} || #{(value[i][2]).to_f}"
+          i -= 1
+        end
       else
         print 'No account history to show'
       end

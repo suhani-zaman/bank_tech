@@ -26,7 +26,8 @@ describe Account do
     it 'Display the current bank statement after crediting money' do
       account.deposit(1000)
       expect { account.account_statement }.to output('date || credit || debit || balance
-04/10/2021 || 1000.0 || || 1000.0').to_stdout
+04/10/2021 || 1000.0 || || 1000.0
+').to_stdout
     end
   end
   describe 'withdraw' do
@@ -42,13 +43,15 @@ describe Account do
       account.balance = 1000
       account.deposit(2000)
       expect { account.account_statement }.to output('date || credit || debit || balance
-04/10/2021 || 2000.0 || || 3000.0').to_stdout
+04/10/2021 || 2000.0 || || 3000.0
+').to_stdout
     end
     it 'Display the current bank statement after money withdrawn' do
       account.balance = 3000
       account.withdraw(500)
       expect { account.account_statement }.to output('date || credit || debit || balance
-04/10/2021 || || 500.0 || 2500.0').to_stdout
+04/10/2021 || || 500.0 || 2500.0
+').to_stdout
     end
     it 'Displays the full bank trasaction made by the customer' do
       account.deposit(1000)
@@ -57,7 +60,8 @@ describe Account do
       expect { account.account_statement }.to output('date || credit || debit || balance
 04/10/2021 || || 500.0 || 2500.0
 04/10/2021 || 2000.0 || || 3000.0
-04/10/2021 || 1000.0 || || 1000.0').to_stdout
+04/10/2021 || 1000.0 || || 1000.0
+').to_stdout
     end
   end
 end
