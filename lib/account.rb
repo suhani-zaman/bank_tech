@@ -2,7 +2,7 @@
 
 # class Account of customer which does three actions:deposit,withdraw and display.
 class Account
-  attr_accessor :balance, :date, :amount
+  attr_accessor :balance, :date, :amount, :transaction
 
   def initialize
     @balance = 0.00 # float value
