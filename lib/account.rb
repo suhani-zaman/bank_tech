@@ -1,29 +1,28 @@
 # frozen_string_literal: true
 
 # class Account of customer which does three actions:deposit,withdraw and display.
+require 'date'
 class Account
   attr_accessor :balance, :date, :amount, :transaction
 
   def initialize
     @balance = 0.00 # float value
     @amount = 0.00
-    @transaction = []
+    @transaction = {}
   end
 
-  def deposit(amount, date)
+  def deposit(amount)
     @amount = amount
     @balance += @amount
-    @card_action = 'credit'
-    @account = [date, @amount, @balance, @card_action]
-    @transaction.push(@account)
+    @account = [Date.today.strftime("%d/%m/%Y"), @amount, @balance]
+    @transaction[:credit] = @account
   end
 
-  def withdraw(amount, date)
+  def withdraw(amount)
     @amount = amount
     @balance -= @amount
-    @card_action = 'debit'
-    @account = [date, @amount, @balance, @card_action]
-    @transaction.push(@account)
+    @account = [Date.today.strftime("%d/%m/%Y"), @amount, @balance, @card_action]
+    @transaction[:debit] = @account
   end
 
   def account_statement
@@ -34,13 +33,12 @@ class Account
   private
 
   def reverse
-    @transaction.reverse_each do |d|
+    @transaction.reverse_each do | key, value |
       puts ''
-      case d[3]
-      when 'credit'
-        print "#{d[0]} || #{d[1].to_f} || || #{d[2].to_f}"
-      when 'debit'
-        print "#{d[0]} || || #{(d[1]).to_f} || #{(d[2]).to_f}"
+      if key == :credit
+        print "#{value[0]} || #{(value[1]).to_f} || || #{(value[2]).to_f}"
+      elsif key == :debit
+        print "#{value[0]} || || #{(value[1]).to_f} || #{(value[2]).to_f}"
       else
         print 'No account history to show'
       end
